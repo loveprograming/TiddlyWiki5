@@ -193,6 +193,8 @@ Error message and password prompt
 
 <li>中粮糖业</li>
 
+<li>PostgreSQL操作</li>
+
 </ul>
 </p>
 
@@ -13973,13 +13975,13 @@ Error message and password prompt
 <div created="20210514134850472" modified="20211204095005950" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
 </div>
-<div created="20211204095243997" modified="20211205082459740" title="$:/state/tab/sidebar--595412856">
-<pre>$:/core/ui/SideBar/Tools</pre>
+<div created="20211204095243997" modified="20220612024414373" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div list="通过Timimi保存TiddlyWiki GettingStarted" title="$:/StoryList">
+<div created="20220612024959758" list="GettingStarted" modified="20220612025003214" title="$:/StoryList">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.23">
@@ -14201,6 +14203,41 @@ Tully 糖业 食品加工 原糖 18.93 106,661.89 63,631.60 74,280.68 1,218.79
 ! 在建项目
 !! 曹妃甸精炼糖项目二期 15 万吨年绵（砂）糖生产线项目
 本项目计划于 2021 年 8 月开始，预计于 2022 年底完成项目建设。预计于 2023 年达产，预计项目内部收益率(IRR)12.79%，投资回收期9.31 年（含建设期）。</pre>
+</div>
+<div created="20220612022327537" modified="20220612024559910" tags="" title="PostgreSQL操作">
+<pre>! 创建用户
+
+create user 用户名 with password '密码';
+
+! 创建数据库
+
+create database 数据库名 owner 用户名;
+
+! 数据库授权给用户
+
+grant all privileges on database 数据库名 to 用户名;
+
+! 选择数据库
+
+\c + 数据库名
+
+! 删除数据库
+
+drop database 数据库名;
+
+! 删除用户
+
+* 有权限依赖的情况下，先取消所有的权限
+
+revoke all on database 数据库名 from 用户名;
+
+drop role 用户名;
+
+* 有对象依赖的情况下，先将对象的所有权转移给其它用户
+
+alter table 数据表名 owner to 其它用户名;
+
+drop role 用户名;</pre>
 </div>
 
 
